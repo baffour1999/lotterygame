@@ -1,0 +1,173 @@
+<html>
+    <head>
+    	<style>
+    	     h1{
+    			padding:5%;
+    			text-align: center;
+    			font-weight: bold;
+    			color:darkred;
+    			font-weight: bold;
+    			border-width: 3px;
+    			background-color: orange;
+    			height: 10%;
+    		}
+            body {
+    			text-align:center;
+    			font-family: "Bookman, URW Bookman L, serif";
+    			background-color: powderblue;
+
+    		}
+
+
+    	</style>
+    </head>
+    <body>
+    	<h1> Welcome To GAME OF CHANCE </h1>
+    	<script>
+    		let UserNumbers = []
+    		UserNumbers = prompt("Enter 5 numbers from 1 to 48").split(' ')
+    		let LuckyNumber = prompt("Enter a lucky number from 1 to 18")
+    		document.write("Your lucky number is: " + LuckyNumber + "<br />")
+
+    		
+            document.write("Your numbers are: ")
+            let x = 0
+            for(x = 0; x < 5; x++){
+            	document.write(UserNumbers[x]  + "  ")
+            }
+            document.write("<br />")
+
+            let WinNumbers = []
+            let i = 0;
+            for(i = 0; i < 5; i++){
+
+            	WinNumbers.push(Math.floor(Math.random() * 48) + 1)
+             }
+            
+
+            let SortedUserNum = WinNumbers.sort(function(a,b) {return a-b})
+            
+            document.write("The winning numbers are: ")
+            let j = 0;
+            for(j = 0; j < 5; j++){
+            	document.write(SortedUserNum[j] + "  ")
+
+            }
+            document.write("<br />")
+
+            let myLuckyNum = Math.floor(Math.random() * 18 + 1)
+            document.write("The lucky number to match is: " + myLuckyNum + "<br />")
+
+            let count = 0;
+            let matched = []
+            let a = 0;
+            let b = 0;
+            for (a = 0; a < 5; a++){
+              for (b = 0; b < 5; b++) {
+                if (UserNumbers[a] == WinNumbers[b]) {
+                         matched.push(UserNumbers[a])
+                         break
+                         count = count + 1
+                }
+                else{
+                	continue
+                }
+              }
+            }
+            let c = 0;
+            if (count > 0) {
+              document.write("Your matched numbers are: ")
+              for (c = 0; c < count; c++)
+              {
+                    document.write(matched[c] + "  ")
+              }
+
+            }
+             document.write("<br />")
+             let ind = 0
+             if (myLuckyNum == LuckyNumber){
+             	ind = ind + 1
+             	document.write("Your lucky number matched!!!")
+             }
+             else{
+             	document.write("Your lucky number did not match")
+             }
+             document.write("<br />")
+
+             
+             if (matched.length == 5){
+             	if (ind > 0) {
+             		document.write("Your prize is: $7000 a WEEK for LIFE")
+             	}
+             	else{
+             		document.write("Your prize is: $25,000 a YEAR for LIFE")
+             	}
+             }
+
+             if (matched.length == 4){
+             	if (ind > 0) {
+             		document.write("Your prize is: $5000")
+             	}
+             	else{
+             		document.write("Your prize is: $200")
+             	}
+             }
+             if (matched.length == 3){
+             	if (ind > 0) {
+             		document.write("Your prize is: $150")
+             	}
+             	else{
+             		document.write("Your prize is: $20")
+             	}
+             }
+             if (matched.length == 2){
+             	if (ind > 0) {
+             		document.write("Your prize is: $25")
+             	}
+             	else{
+             		document.write("Your prize is: $3")
+             	}
+             }
+             if (matched.length == 1){
+             	if (ind > 0) {
+             		document.write("Your prize is: $6")
+             	}
+             	else{
+             		document.write("Sorry, try again")
+             	}
+          
+             }
+             if (matched.length == 0){
+             	if (ind > 0) {
+             		document.write("Your prize is $4")
+             	}
+             	else{
+             		document.write("Sorry, try again")
+             	}
+             }
+
+
+
+             
+             
+             
+             
+
+
+
+
+
+
+           
+
+
+            
+
+
+    		
+
+    		
+    	</script> 
+    </body>
+
+</html>
